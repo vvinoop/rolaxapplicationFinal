@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolaxresorts-deployment
+  labels:
+    app: rolaxresorts
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rolaxresorts
+  template:
+    metadata:
+      labels:
+        app: rolaxresorts
+    spec:
+      containers:
+      - name: rolaxresorts
+        image: rolaxresorts.azurecr.io/rolax-resort-image:v1
+        ports:
+        - containerPort: 80
